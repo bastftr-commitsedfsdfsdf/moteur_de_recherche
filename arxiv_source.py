@@ -17,7 +17,7 @@ class ArxivSource:
         self.limit = limit
 
     def fetch(self):
-        """Renvoie la liste des résumés (champ 'summary') des articles trouvés."""
+        """Renvoie la liste des ArxivDocument correspondant aux articles trouvés."""
         params = urllib.parse.urlencode({
             "search_query": "all:" + self.query,
             "start": 0,

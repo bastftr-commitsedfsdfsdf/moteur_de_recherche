@@ -1,5 +1,4 @@
-from arxiv_document import ArxivDocument
-from reddit_document import RedditDocument
+from Document import ArxivDocument, RedditDocument
 
 
 class DocumentFactory:
