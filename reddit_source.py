@@ -10,7 +10,7 @@ from document_factory import DocumentFactory
 class RedditSource:
     """Récupère des posts Reddit via l'API (librairie praw)."""
 
-    def __init__(self, subreddit, limit=10):
+    def __init__(self, subreddit, limit=1000):
         self.subreddit = subreddit
         self.limit = limit
 

@@ -8,7 +8,7 @@ from reddit_source import RedditSource
 from search_engine import SearchEngine
 
 CSV_PATH = "corpus.csv"
-NB_DOCS = 10
+NB_DOCS = 1000
 LONGUEUR_MIN = 100  # les documents plus courts (en caractères) sont écartés
 
 

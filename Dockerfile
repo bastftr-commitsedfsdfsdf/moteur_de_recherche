@@ -10,4 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Puis le code du projet
 COPY . .
 
-CMD ["python", "main.py"]
+# Port sur lequel écoute le serveur Flask
+EXPOSE 5000
+
+CMD ["python", "app.py"]

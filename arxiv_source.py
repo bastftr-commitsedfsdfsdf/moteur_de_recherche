@@ -12,7 +12,7 @@ class ArxivSource:
 
     BASE_URL = "http://export.arxiv.org/api/query"
 
-    def __init__(self, query, limit=10):
+    def __init__(self, query, limit=1000):
         self.query = query
         self.limit = limit
 

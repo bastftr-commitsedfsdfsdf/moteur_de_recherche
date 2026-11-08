@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AeroSearch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <!-- Une balise span par lettre pour pouvoir colorer chacune -->
+        <h1 class="logo">
+            <span class="bleu">A</span><span class="rouge">e</span><span class="jaune">r</span><span class="bleu">o</span><span class="vert">S</span><span class="rouge">e</span><span class="bleu">a</span><span class="jaune">r</span><span class="vert">c</span><span class="rouge">h</span>
+        </h1>
+        <p class="sous-titre">Corpus « {{ nom }} » : {{ nb_docs }} documents (Reddit + Arxiv)</p>
+
+        <form id="formulaire">
+            <!-- La barre de recherche : mots clés à gauche, nombre de documents à droite -->
+            <div class="barre">
+                <input type="text" id="mots-cles" placeholder="Rechercher dans le corpus..."
+                       aria-label="Mots clés" required>
+                <input type="number" id="nb-articles" min="1" max="{{ nb_docs }}" value="5"
+                       title="Nombre de documents à extraire" aria-label="Nombre de documents">
+            </div>
+
+            <div class="boutons">
+                <button type="submit" class="bouton-rechercher">Rechercher</button>
+                <button type="button" id="ouvrir-filtres" class="bouton-filtres">Filtres</button>
+            </div>
+
+            <!-- Sidebar des filtres : cachée à droite, affichée quand elle a la classe "ouverte" -->
+            <aside id="sidebar" class="sidebar">
+                <div class="sidebar-entete">
+                    <h2>Filtres</h2>
+                    <button type="button" id="fermer-filtres" class="bouton-fermer" aria-label="Fermer">&times;</button>
+                </div>
+
+                <div class="champ">
+                    <label for="source">Source</label>
+                    <select id="source">
+                        <option value="">Toutes</option>
+                        <option value="reddit">Reddit</option>
+                        <option value="arxiv">Arxiv</option>
+                    </select>
+                </div>
+                <div class="champ">
+                    <label for="auteur">Auteur</label>
+                    <input type="text" id="auteur" list="liste-auteurs" placeholder="Tous">
+                    <datalist id="liste-auteurs">
+                        {% for auteur in auteurs %}<option value="{{ auteur }}">{% endfor %}
+                    </datalist>
+                </div>
+                <div class="champ">
+                    <label for="date-debut">Du</label>
+                    <input type="date" id="date-debut" min="{{ date_min }}" max="{{ date_max }}">
+                </div>
+                <div class="champ">
+                    <label for="date-fin">Au</label>
+                    <input type="date" id="date-fin" min="{{ date_min }}" max="{{ date_max }}">
+                </div>
+
+                <button type="submit" class="bouton-rechercher">Appliquer</button>
+                <button type="button" id="reinitialiser-filtres" class="bouton-filtres">Réinitialiser</button>
+            </aside>
+        </form>
+
+        <div id="resultats"></div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
