@@ -18,9 +18,8 @@ Le corpus (`corpus.csv`, 1807 documents) est **déjà fourni** dans le dépôt :
 2. [Installation sans Docker](#2-installation-sans-docker)
 3. [Utiliser l'interface](#3-utiliser-linterface)
 4. [Démonstration en ligne de commande](#4-démonstration-en-ligne-de-commande)
-5. [Reconstituer le corpus depuis les API (optionnel)](#5-reconstituer-le-corpus-depuis-les-api-optionnel)
-6. [Problèmes fréquents](#6-problèmes-fréquents)
-7. [Structure du projet](#7-structure-du-projet)
+5. [Problèmes fréquents](#5-problèmes-fréquents)
+6. [Structure du projet](#6-structure-du-projet)
 
 ---
 
